@@ -13,7 +13,11 @@ export default {
           'DarkGray': 'hsl(0, 0%, 52%)',  //Light Mode Input
           'VeryDarkBlue': 'hsl(200, 15%, 8%)' // Light Mode Text 
         }
-      }
+      },
+      spacing: {
+        '128': '30rem',
+        '144': '36rem',
+      },
     },
     
   },
