@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function SearchBar() {
   return (
     <form className="w-full md:w-128 h-12 bg-white flex justify-center items-center rounded shadow-sm">
-      <div className="w-24 flex justify-center items-center">
+      <div className="w-20 flex justify-center items-center cursor-pointer">
         <FontAwesomeIcon
           icon={faMagnifyingGlass}
           className="text-lightMode-DarkGray"
