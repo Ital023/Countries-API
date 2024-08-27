@@ -1,4 +1,5 @@
-import darkModeIcon from "../../assets/DarkModeIcon.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
@@ -8,8 +9,8 @@ export default function Header() {
           Where in the world?
         </h1>
 
-        <div className="flex flex-row justify-between items-center gap-2">
-          <img src={darkModeIcon} alt="Dark mode icon" className="w-4 md:w-5 md:h-5 h-4" />
+        <div className="flex flex-row justify-between items-center gap-2 cursor-pointer">
+          <FontAwesomeIcon icon={faMoon} />
           <p className="font-semibold text-xs md:text-base text-lightMode-VeryDarkBlue">
             Dark Mode
           </p>
