@@ -8,7 +8,6 @@ export default {
   theme: {
     extend: {
       colors: {
-         //Dark Mode Text & Light Mode Elements
         'lightMode': {
           'primary': 'hsl(0, 0%, 98%)', //Light Mode Body Background 
           'secondary': 'hsl(0, 0%, 52%)',  //Light Mode Input
