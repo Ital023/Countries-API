@@ -1,9 +1,10 @@
-import { Flags } from "./flags"
+import { Flags } from "./Flags"
 
 export type CountryCardDTO = {
-    flags: Flags,
-    name: string, 
-    population: number,
-    region: string,
-    capital: string
+    id: string;
+    flags: Flags;
+    name: string;
+    population: number;
+    region: string;
+    capital: string;
 }

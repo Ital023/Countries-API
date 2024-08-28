@@ -27,7 +27,8 @@ export default function Countries() {
           <div className="flex flex-col gap-10 md:grid xl:grid-cols-4 md:grid-cols-2">
             {
               countriesCardDto.map(country => (
-                <CountryCard imgFlag={country.flags.png} name={country.name} population={country.population} region={country.region} capital={country.capital} />
+                
+                <CountryCard key={country.id} id={country.id} imgFlag={country.flags.png} name={country.name} population={country.population} region={country.region} capital={country.capital} />
               ))
             }
 

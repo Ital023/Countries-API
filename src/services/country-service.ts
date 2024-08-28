@@ -6,6 +6,7 @@ export function getCountryCardInfos() {
 
     data.map(x => {
         const country: CountryCardDTO = {
+            id: x.alpha3Code,
             flags: x.flags,
             name: x.name,
             population: x.population,

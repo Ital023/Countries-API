@@ -1,13 +1,14 @@
 
 type Props = {
-  imgFlag: string, 
-  name: string, 
-  population: number, 
-  region: string, 
-  capital: string
+  id: string;
+  imgFlag: string;
+  name: string;
+  population: number;
+  region: string; 
+  capital: string;
 }
 
-export default function CountryCard({imgFlag, name, population, region, capital}:Props) {
+export default function CountryCard({id,imgFlag, name, population, region, capital}:Props) {
   return (
     <div className="w-68 h-86 bg-lightMode-quaternary mx-auto rounded dark:bg-darkMode-tertiary shadow-md">
       <div className="w-full h-40">
@@ -15,7 +16,8 @@ export default function CountryCard({imgFlag, name, population, region, capital}
       </div>
 
       <div className="h-44 p-6 flex flex-col gap-4">
-        <h2 className="font-extrabold text-lightMode-tertiary text-lg dark:text-darkMode-secondary">
+        <span className="hidden">{id}</span>
+        <h2 className="line-clamp-1 font-extrabold text-lightMode-tertiary text-lg dark:text-darkMode-secondary">
           {name}
         </h2>
 
