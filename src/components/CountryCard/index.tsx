@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 type Props = {
   id: string;
   imgFlag: string;
+  alt: string;
   name: string;
   population: number;
   region: string; 
   capital: string;
 }
 
-export default function CountryCard({id,imgFlag, name, population, region, capital}:Props) {
+export default function CountryCard({id,imgFlag, alt, name, population, region, capital}:Props) {
   return (
     <Link to={`/countries/${id}`}>
     <div className="w-68 h-86 bg-lightMode-quaternary mx-auto rounded dark:bg-darkMode-tertiary shadow-md">
       <div className="w-full h-40">
-        <img src={imgFlag} alt={name} className="rounded-t h-full w-full" />
+        <img src={imgFlag} alt={alt} className="rounded-t h-full w-full" />
       </div>
 
       <div className="h-44 p-6 flex flex-col gap-4">

@@ -10,8 +10,11 @@ export default function Countries() {
   const [countriesCardDto, setCountriesCardDto] = useState<CountryCardDTO[]>([]);
 
   useEffect(()=>{
-    setCountriesCardDto(countryService.getCountryCardInfos());
-  },[countriesCardDto])
+    countryService.findAllRequest().then((response)=>{
+      const result = response.data;
+      setCountriesCardDto(countryService.getCountryCardInfos(result));      
+    });
+  },[])
 
 
   return (
