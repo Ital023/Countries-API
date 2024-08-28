@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 type Props = {
   id: string;
@@ -10,6 +11,7 @@ type Props = {
 
 export default function CountryCard({id,imgFlag, name, population, region, capital}:Props) {
   return (
+    <Link to={`/countries/${id}`}>
     <div className="w-68 h-86 bg-lightMode-quaternary mx-auto rounded dark:bg-darkMode-tertiary shadow-md">
       <div className="w-full h-40">
         <img src={imgFlag} alt={name} className="rounded-t h-full w-full" />
@@ -43,5 +45,6 @@ export default function CountryCard({id,imgFlag, name, population, region, capit
         </div>
       </div>
     </div>
+    </Link>
   );
 }
