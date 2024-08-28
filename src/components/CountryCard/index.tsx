@@ -13,12 +13,12 @@ type Props = {
 export default function CountryCard({id,imgFlag, alt, name, population, region, capital}:Props) {
   return (
     <Link to={`/countries/${id}`}>
-    <div className="w-68 h-86 bg-lightMode-quaternary mx-auto rounded dark:bg-darkMode-tertiary shadow-md">
+    <div className="w-68 h-90 bg-lightMode-quaternary mx-auto rounded dark:bg-darkMode-tertiary shadow-md">
       <div className="w-full h-40">
-        <img src={imgFlag} alt={alt} className="rounded-t h-full w-full" />
+        <img src={imgFlag} alt={alt} className="rounded-t h-full w-full object-cover" />
       </div>
 
-      <div className="h-44 p-6 flex flex-col gap-4">
+      <div className="h-full p-6 flex flex-col gap-4">
         <span className="hidden">{id}</span>
         <h2 className="line-clamp-1 font-extrabold text-lightMode-tertiary text-lg dark:text-darkMode-secondary">
           {name}

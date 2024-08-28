@@ -10,8 +10,10 @@ export function findAllRequest() {
 export function getCountryCardInfos(response: any[]): CountryCardDTO[] {
   const countries: CountryCardDTO[] = [];
 
+  const sortedCountries = sortCountriesAlphabetically(response);
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  response.map((x) => {
+  sortedCountries.map((x: { cca3: any; flags: any; name: { common: any; }; population: any; subregion: any; capital: any; }) => {
     const country: CountryCardDTO = {
       id: x.cca3,
       flags: x.flags,
@@ -25,6 +27,13 @@ export function getCountryCardInfos(response: any[]): CountryCardDTO[] {
   });
 
   return countries;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function sortCountriesAlphabetically(response: any[]) {
+  return response.sort((a, b) =>
+    a.name.common.localeCompare(b.name.common)
+  );
 }
 
 // export function getCountryById(id: string): CountryCardDTO {
