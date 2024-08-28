@@ -11,7 +11,7 @@ export default function CountryCard({imgFlag, name, population, region, capital}
   return (
     <div className="w-68 h-86 bg-lightMode-quaternary mx-auto rounded dark:bg-darkMode-tertiary shadow-md">
       <div className="w-full h-40">
-        <img src={imgFlag} alt={name} className="rounded-t" />
+        <img src={imgFlag} alt={name} className="rounded-t h-full w-full" />
       </div>
 
       <div className="h-44 p-6 flex flex-col gap-4">
