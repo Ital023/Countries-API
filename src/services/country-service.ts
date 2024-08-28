@@ -6,6 +6,10 @@ export function findAllRequest() {
   return axios.get(`${BASE_URL}/all`);
 }
 
+export function findById(id: string) {
+  return axios.get(`${BASE_URL}/alpha/${id}`)
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getCountryCardInfos(response: any[]): CountryCardDTO[] {
   const countries: CountryCardDTO[] = [];
@@ -36,29 +40,32 @@ function sortCountriesAlphabetically(response: any[]) {
   );
 }
 
-// export function getCountryById(id: string): CountryCardDTO {
-//   const country = data.find((x: { alpha3Code: string; }) => id === x.alpha3Code);
-//   let countryDTO: CountryCardDTO = {
-//     id: "",
-//     flags: {
-//       png: "",
-//       svg: "",
-//     },
-//     name: "",
-//     population: 0,
-//     region: "",
-//     capital: "",
-//   };
-//   if (country) {
-//     countryDTO = {
-//       id: country.alpha3Code,
-//       flags: country.flags,
-//       name: country.name,
-//       population: country.population,
-//       region: country.region,
-//       capital: country.region,
-//     };
-//     return countryDTO;
-//   }
-//   return countryDTO;
-// }
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ export function getCountryById(response: any): CountryCardDTO {
+  const country = response[0];
+   let countryDTO: CountryCardDTO = {
+     id: "",
+     flags: {
+       png: "",
+       svg: "",
+       alt: ""
+     },
+     name: "",
+     population: 0,
+     region: "",
+     capital: "",
+   };
+   if (country) {
+     countryDTO = {
+      id: country.cca3,
+      flags: country.flags,
+      name: country.name.common,
+      population: country.population,
+      region: country.subregion,
+      capital: country.capital,
+     };
+
+     return countryDTO;
+   }
+   return countryDTO;
+ }

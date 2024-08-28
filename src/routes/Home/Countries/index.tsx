@@ -18,7 +18,7 @@ export default function Countries() {
 
 
   return (
-    <main className="bg-lightMode-primary min-h-screen  px-4 pt-6 pb-16 dark:bg-darkMode-primary">
+    <main className="bg-lightMode-primary min-h-screen px-4 pt-6 pb-16 dark:bg-darkMode-primary">
       <div className="lg:max-w-[1240px] container md:mx-auto">
 
         <div className="flex flex-col gap-10">
