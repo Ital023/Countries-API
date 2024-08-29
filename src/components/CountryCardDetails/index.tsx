@@ -1,3 +1,4 @@
+import BorderCountryCard from "../BorderCountryCard";
 
 export default function CountryCardDetails() {
   return (
@@ -28,8 +29,13 @@ export default function CountryCardDetails() {
 
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-4">
                     <h3 className="text-lightMode-tertiary font-bold text-base dark:text-darkMode-secondary">Border Countries: </h3>
+                    <div className="grid grid-cols-2 xs:grid-cols-3 gap-3">
+                        <BorderCountryCard name="France"/>
+                        <BorderCountryCard name="Germany"/>
+                        <BorderCountryCard name="Netherlands"/>
+                    </div>
                 </div>
 
             </div>
