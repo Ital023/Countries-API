@@ -7,6 +7,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      screens: {
+        'xs': '370px',
+      },
       colors: {
         'lightMode': {
           'primary': 'hsl(0, 0%, 98%)', //Light Mode Body Background 
@@ -26,6 +29,7 @@ export default {
         '26' : '6.5rem',
         '46' : '11.5rem',
         '50' : '12.5rem',
+        '56' : '14.313rem',
         '68' : '16.5rem',
         '86' : '21rem',
         '88' : '21.5rem',

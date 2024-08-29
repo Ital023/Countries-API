@@ -19,7 +19,7 @@ export default function CountryDetails() {
 
   return (
     <main className="bg-lightMode-primary min-h-screen px-7 pt-10 pb-16 dark:bg-darkMode-primary">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-16">
         <BackButton />
         <CountryCardDetails />
       </div>

@@ -1,14 +1,12 @@
-import flag from "../../assets/FLAG.png"
 
 export default function CountryCardDetails() {
   return (
-    <div className="">
+    <div className="flex flex-col ">
 
-        <div className="">
-            <img src={flag} alt="test" className="min-w-72"/>
+        <div className="xs:w-80 ">
+            <img src={"https://flagcdn.com/w320/be.png"} alt="test" className="w-full max-h-56 rounded"/>
         </div>
-            
-
+        
         <div>
             <h2>Belgium</h2>
 
