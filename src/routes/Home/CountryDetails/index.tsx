@@ -11,6 +11,8 @@ export default function CountryDetails() {
   const [country, setCountry] = useState<CountryCardDTO>();
 
   useEffect(() => {
+    console.log(String(params.countryId));
+    
     countryService.findById(String(params.countryId)).then((response) => {
       setCountry(countryService.getCountryById(response.data));
       console.log(country);

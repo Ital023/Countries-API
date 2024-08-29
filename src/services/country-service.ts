@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CountryCardDTO } from "../models/CountryCardDTO";
 import { BASE_URL } from "../utils/system";
+import { CountryCardDetailDTO } from "../models/CountryCardDetailDTO";
 
 export function findAllRequest() {
   return axios.get(`${BASE_URL}/all`);
@@ -41,25 +42,16 @@ function sortCountriesAlphabetically(response: any[]) {
 }
 
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
- export function getCountryById(response: any): CountryCardDTO {
+ export function getCountryById(response: any): CountryCardDetailDTO {
   const country = response[0];
-   let countryDTO: CountryCardDTO = {
-     id: "",
-     flags: {
-       png: "",
-       svg: "",
-       alt: ""
-     },
-     name: "",
-     population: 0,
-     region: "",
-     capital: "",
-   };
+
+   let countryDTO: CountryCardDetailDTO
+
    if (country) {
      countryDTO = {
       id: country.cca3,
       flags: country.flags,
-      name: country.name.common,
+      nativeName: country.nativeName,
       population: country.population,
       region: country.subregion,
       capital: country.capital,
@@ -69,3 +61,5 @@ function sortCountriesAlphabetically(response: any[]) {
    }
    return countryDTO;
  }
+
+
