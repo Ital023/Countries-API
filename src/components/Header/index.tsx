@@ -13,8 +13,8 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-lightMode-quaternary h-20 flex justify-center content-center dark:bg-darkMode-tertiary">
-      <div className="container px-4 flex flex-row items-center justify-between h-full shadow">
+    <header className="bg-lightMode-quaternary h-20 flex justify-center content-center dark:bg-darkMode-tertiary shadow">
+      <div className="container px-4 flex flex-row items-center justify-between h-full ">
         <Link to={"/"}>
           <h1 className="font-extrabold text-sm md:text-2xl text-lightMode-tertiary dark:text-darkMode-secondary">
             Where in the world?

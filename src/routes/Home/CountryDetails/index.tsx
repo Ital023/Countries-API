@@ -18,10 +18,12 @@ export default function CountryDetails() {
   }, []);
 
   return (
-    <main className="bg-lightMode-primary min-h-screen px-7 pt-10 pb-16 dark:bg-darkMode-primary">
-      <div className="flex flex-col gap-16">
-        <BackButton />
-        <CountryCardDetails />
+    <main className="bg-lightMode-primary min-h-screen px-7 pt-10 pb-16 dark:bg-darkMode-primary ">
+      <div className="lg:max-w-[1240px] container md:mx-auto">
+        <div className="flex flex-col gap-16">
+          <BackButton />
+          <CountryCardDetails />
+        </div>
       </div>
     </main>
   );

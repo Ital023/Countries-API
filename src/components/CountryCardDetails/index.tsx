@@ -2,10 +2,10 @@ import BorderCountryCard from "../BorderCountryCard";
 
 export default function CountryCardDetails() {
   return (
-    <div className="flex flex-col gap-11">
+    <div className="flex flex-col gap-11 lg:flex-row">
 
-        <div className="xs:w-80 ">
-            <img src={"https://flagcdn.com/w320/be.png"} alt="test" className="w-full max-h-56 rounded shadow"/>
+        <div className="xs:w-80 lg:w-136">
+            <img src={"https://flagcdn.com/w320/be.png"} alt="test" className="w-full max-h-56 lg:max-h-106 rounded shadow object-cover"/>
         </div>
         
         <div className="flex flex-col gap-4">
