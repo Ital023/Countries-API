@@ -23,7 +23,7 @@ export default function CountryDetails() {
   }, [countryId]);
 
   return (
-    <main className="bg-lightMode-primary min-h-[calc(100vh-5rem)] px-7 pt-10 pb-16 lg:pb-0 dark:bg-darkMode-primary">
+    <main className="bg-lightMode-primary min-h-[calc(100vh-5rem)] px-7 pt-10 pb-16 lg:pb-6 dark:bg-darkMode-primary">
       <div className="lg:max-w-[1240px] container md:mx-auto">
         <div className="flex flex-col gap-16">
           <BackButton />

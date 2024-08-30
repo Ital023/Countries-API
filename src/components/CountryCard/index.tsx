@@ -10,7 +10,7 @@ export default function CountryCard({country}:Props) {
     <Link to={`/countries/${country.id}`}>
     <div className="w-68 h-88 bg-lightMode-quaternary mx-auto rounded dark:bg-darkMode-tertiary shadow-md">
       <div className="w-full h-40">
-        <img src={country.flags.png} alt={country.flags.alt} className="rounded-t h-full w-full object-cover" />
+        <img src={country.flags.svg} alt={country.flags.alt} className="rounded-t h-full w-full object-cover" />
       </div>
 
       <div className="h-46 p-6 flex flex-col gap-4">
