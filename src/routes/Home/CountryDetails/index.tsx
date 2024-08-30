@@ -27,7 +27,11 @@ export default function CountryDetails() {
       <div className="lg:max-w-[1240px] container md:mx-auto">
         <div className="flex flex-col gap-16">
           <BackButton />
-          <CountryCardDetails />
+          {
+            country &&
+            <CountryCardDetails country={country}/>
+
+          }
         </div>
       </div>
     </main>

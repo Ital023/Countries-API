@@ -4,6 +4,7 @@ import { LanguageCode } from "./NativeName";
 
 export type CountryCardDetailDTO = {
     id: string;
+    name: string;
     nativeName: { [key: string]: LanguageCode };
     population: number;
     region: string;

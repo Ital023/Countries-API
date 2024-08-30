@@ -1,15 +1,21 @@
+import { CountryCardDetailDTO } from "../../models/CountryCardDetailDTO";
 import BorderCountryCard from "../BorderCountryCard";
 
-export default function CountryCardDetails() {
+type Props = {
+    country: CountryCardDetailDTO;
+}
+
+
+export default function CountryCardDetails({country} : Props) {
   return (
     <div className="flex flex-col gap-11 lg:flex-row lg:gap-36">
 
         <div className="xs:min-w-80 md:w-80 lg:w-136">
-            <img src={"https://flagcdn.com/w320/be.png"} alt="test" className="w-full max-h-56 lg:max-h-106 rounded shadow object-cover"/>
+            <img src={country.flags.png} alt={country.flags.alt} className="w-full max-h-56 lg:max-h-106 rounded shadow object-cover"/>
         </div>
         
         <div className="flex flex-col gap-4 lg:gap-7">
-            <h2 className="text-lightMode-tertiary dark:text-darkMode-secondary font-extrabold text-2xl lg:text-4xl">Belgium</h2>
+            <h2 className="text-lightMode-tertiary dark:text-darkMode-secondary font-extrabold text-2xl lg:text-4xl">{country.name}</h2>
 
             <div className="flex flex-col gap-8 lg:gap-18">
 

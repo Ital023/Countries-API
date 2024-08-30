@@ -47,6 +47,7 @@ function sortCountriesAlphabetically(response: any[]) {
 
    let countryDTO: CountryCardDetailDTO = {
      id: "",
+     name: "",
      nativeName: {},
      population: 0,
      region: "",
@@ -65,6 +66,7 @@ function sortCountriesAlphabetically(response: any[]) {
    if (country) {
      countryDTO = {
       id: country.cca3,
+      name: country.name.common,
       flags: country.flags,
       nativeName: country.name.nativeName,
       population: country.population,
