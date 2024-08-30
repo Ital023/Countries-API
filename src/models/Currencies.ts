@@ -1,8 +1,8 @@
-export type currencies = {
-    currency: currency;
+export type Currencies = {
+    [key: string]: Currency;
 }
 
-type currency = {
+export type Currency = {
     name: string;
     symbol: string;
 }

@@ -1,15 +1,16 @@
+import { Currency } from "./Currencies";
 import { Flags } from "./Flags"
-import { NativeName } from "./NativeName";
+import { LanguageCode } from "./NativeName";
 
 export type CountryCardDetailDTO = {
     id: string;
-    nativeName: NativeName;
+    nativeName: { [key: string]: LanguageCode };
     population: number;
     region: string;
     subregion: string;
     capital: string;
-    tld: string;
-    currencies: string;
-    Languages: string;
+    tld: string[];
+    currencies: {[key: string]: Currency};
+    languages: { [key: string]: string };
     flags: Flags;    
 }

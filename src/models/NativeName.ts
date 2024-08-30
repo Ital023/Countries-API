@@ -1,8 +1,8 @@
 export type NativeName = {
-    LanguageCode: LanguageCode;
+    [key: string]: LanguageCode;
 }
 
-type LanguageCode = {
+export type LanguageCode = {
     official: string;
     common: string;
 }

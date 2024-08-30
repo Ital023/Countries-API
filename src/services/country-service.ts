@@ -45,20 +45,40 @@ function sortCountriesAlphabetically(response: any[]) {
  export function getCountryById(response: any): CountryCardDetailDTO {
   const country = response[0];
 
-   let countryDTO: CountryCardDetailDTO
+   let countryDTO: CountryCardDetailDTO = {
+     id: "",
+     nativeName: {},
+     population: 0,
+     region: "",
+     subregion: "",
+     capital: "",
+     tld: [],
+     currencies: {},
+     languages: {},
+     flags: {
+       png: "",
+       svg: "",
+       alt: ""
+     }
+   }
 
    if (country) {
      countryDTO = {
       id: country.cca3,
       flags: country.flags,
-      nativeName: country.nativeName,
+      nativeName: country.name.nativeName,
       population: country.population,
       region: country.subregion,
       capital: country.capital,
+      tld: country.tld,
+      currencies: country.currencies,
+      languages: country.languages,
+      subregion: country.subregion
      };
 
      return countryDTO;
    }
+
    return countryDTO;
  }
 

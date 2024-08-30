@@ -1,23 +1,26 @@
 import { useEffect, useState } from "react";
-import { CountryCardDTO } from "../../../models/CountryCardDTO";
 import { useParams } from "react-router-dom";
 import * as countryService from "../../../services/country-service";
 import BackButton from "../../../components/BackButton";
 import CountryCardDetails from "../../../components/CountryCardDetails";
+import { CountryCardDetailDTO } from "../../../models/CountryCardDetailDTO";
 
 export default function CountryDetails() {
-  const params = useParams();
+  const { countryId } = useParams();
 
-  const [country, setCountry] = useState<CountryCardDTO>();
+  const [country, setCountry] = useState<CountryCardDetailDTO>();
 
   useEffect(() => {
-    console.log(String(params.countryId));
-    
-    countryService.findById(String(params.countryId)).then((response) => {
-      setCountry(countryService.getCountryById(response.data));
-      console.log(country);
-    });
-  }, []);
+    if (countryId) {
+
+      countryService.findById(String(countryId)).then((response) => {
+        const countryData = countryService.getCountryById(response.data);
+        setCountry(countryData);
+        console.log(countryData);
+        
+      });
+    }
+  }, [countryId]);
 
   return (
     <main className="bg-lightMode-primary min-h-screen px-7 pt-10 pb-16 dark:bg-darkMode-primary ">
