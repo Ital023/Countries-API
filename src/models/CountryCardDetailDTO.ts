@@ -1,4 +1,3 @@
-import { Currency } from "./Currencies";
 import { Flags } from "./Flags"
 
 export type CountryCardDetailDTO = {
@@ -10,7 +9,7 @@ export type CountryCardDetailDTO = {
     subregion: string;
     capital: string;
     tld: string[];
-    currencies: {[key: string]: Currency};
+    currencies: string;
     languages: string;
     flags: Flags;    
 }

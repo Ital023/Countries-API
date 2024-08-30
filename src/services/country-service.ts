@@ -2,6 +2,7 @@ import axios from "axios";
 import { CountryCardDTO } from "../models/CountryCardDTO";
 import { BASE_URL } from "../utils/system";
 import { CountryCardDetailDTO } from "../models/CountryCardDetailDTO";
+import { Currency } from "../models/Currencies";
 
 export function findAllRequest() {
   return axios.get(`${BASE_URL}/all`);
@@ -60,7 +61,7 @@ function sortCountriesAlphabetically(response: any[]) {
      subregion: "",
      capital: "",
      tld: [],
-     currencies: {},
+     currencies: "",
      languages: "",
      flags: {
        png: "",
@@ -79,8 +80,18 @@ function sortCountriesAlphabetically(response: any[]) {
     const valuesLanguages = Object.values(objectLanguages);
     const concatenatedLanguages = valuesLanguages.join(", ");    
 
-    
+    const objectCurrencies = Object.assign(country.currencies);
+    const valuesCurrencies = Object.values(objectCurrencies) as Currency[];
+    const arrayCurrencies: string[] = [];
 
+    valuesCurrencies.map((currency: Currency) => {
+      const nameCurrency = currency.name;
+      arrayCurrencies.push(nameCurrency);
+    })
+    
+    const concatenatedCurrencies = arrayCurrencies.join(", ");    
+
+    
      countryDTO = {
       id: country.cca3,
       name: country.name.common,
@@ -90,7 +101,7 @@ function sortCountriesAlphabetically(response: any[]) {
       region: country.subregion,
       capital: country.capital,
       tld: country.tld,
-      currencies: country.currencies,
+      currencies: concatenatedCurrencies,
       languages: concatenatedLanguages,
       subregion: country.subregion
      };
