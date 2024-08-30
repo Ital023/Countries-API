@@ -1,5 +1,6 @@
 import { CountryCardDetailDTO } from "../../models/CountryCardDetailDTO";
 import BorderCountryCard from "../BorderCountryCard";
+import CountryCardDetailsInfos from "../CountryCardDetailsInfos";
 
 type Props = {
     country: CountryCardDetailDTO;
@@ -23,11 +24,7 @@ export default function CountryCardDetails({country} : Props) {
 
                 
                 <div className="flex flex-col gap-3">
-                    <p className="text-lightMode-tertiary font-bold text-sm md:text-base dark:text-darkMode-secondary">Native Name: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">België</span></p>
-                    <p className="text-lightMode-tertiary font-bold text-sm dark:text-darkMode-secondary md:text-base">Population: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">11,319,511</span></p>
-                    <p className="text-lightMode-tertiary font-bold text-sm dark:text-darkMode-secondary md:text-base">Region: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">Europe</span></p>
-                    <p className="text-lightMode-tertiary font-bold text-sm dark:text-darkMode-secondary md:text-base">Sub Region: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">Western Europe</span></p>
-                    <p className="text-lightMode-tertiary font-bold text-sm dark:text-darkMode-secondary md:text-base">Capital: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">Brussels</span></p>
+                    <CountryCardDetailsInfos contentName={"Native Name"} content={country.name} />
                 </div>
 
                 <div className="flex flex-col gap-3">
