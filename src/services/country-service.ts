@@ -45,17 +45,23 @@ function sortCountriesAlphabetically(response: any[]) {
  export function getCountryById(response: any): CountryCardDetailDTO {
   const country = response[0];
 
+
+
+
+  
+  
+
    let countryDTO: CountryCardDetailDTO = {
      id: "",
      name: "",
-     nativeName: {},
+     nativeName: "",
      population: 0,
      region: "",
      subregion: "",
      capital: "",
      tld: [],
      currencies: {},
-     languages: {},
+     languages: "",
      flags: {
        png: "",
        svg: "",
@@ -64,17 +70,28 @@ function sortCountriesAlphabetically(response: any[]) {
    }
 
    if (country) {
+
+    const objectNativeName = Object.assign(country.name.nativeName);
+    const valueNativeName: { common: string }[]  = Object.values(objectNativeName);
+    const nativeName = valueNativeName[0].common;
+
+    const objectLanguages = Object.assign(country.languages);
+    const valuesLanguages = Object.values(objectLanguages);
+    const concatenatedLanguages = valuesLanguages.join(", ");    
+
+    
+
      countryDTO = {
       id: country.cca3,
       name: country.name.common,
       flags: country.flags,
-      nativeName: country.name.nativeName,
+      nativeName: nativeName,
       population: country.population,
       region: country.subregion,
       capital: country.capital,
       tld: country.tld,
       currencies: country.currencies,
-      languages: country.languages,
+      languages: concatenatedLanguages,
       subregion: country.subregion
      };
 
