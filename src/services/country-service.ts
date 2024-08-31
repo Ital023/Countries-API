@@ -21,11 +21,15 @@ export function getCountryCardInfos(response: any[]): CountryCardDTO[] {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sortedCountries.map((x: { cca3: any; flags: any; name: { common: any; }; population: any; subregion: any; capital: any; }) => {
+
+    const formatedNumber: number = x.population.toLocaleString('en-US');
+
+
     const country: CountryCardDTO = {
       id: x.cca3,
       flags: x.flags,
       name: x.name.common,
-      population: x.population,
+      population: formatedNumber,
       region: x.subregion,
       capital: x.capital,
     };
