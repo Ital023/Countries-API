@@ -25,6 +25,8 @@ export default function CountryCardDetails({country} : Props) {
                 
                 <div className="flex flex-col gap-3">
                     <CountryCardDetailsInfos contentName={"Native Name"} content={country.name} />
+                    <CountryCardDetailsInfos contentName={"Native Name"} content={country.name} />
+
                 </div>
 
                 <div className="flex flex-col gap-3">

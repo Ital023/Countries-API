@@ -46,12 +46,6 @@ function sortCountriesAlphabetically(response: any[]) {
  export function getCountryById(response: any): CountryCardDetailDTO {
   const country = response[0];
 
-
-
-
-  
-  
-
    let countryDTO: CountryCardDetailDTO = {
      id: "",
      name: "",
@@ -91,13 +85,15 @@ function sortCountriesAlphabetically(response: any[]) {
     
     const concatenatedCurrencies = arrayCurrencies.join(", ");    
 
+    const formatedNumber: number = country.population.toLocaleString('en-US');
+
     
      countryDTO = {
       id: country.cca3,
       name: country.name.common,
       flags: country.flags,
       nativeName: nativeName,
-      population: country.population,
+      population: formatedNumber,
       region: country.subregion,
       capital: country.capital,
       tld: country.tld,
