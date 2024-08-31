@@ -16,7 +16,6 @@ export default function CountryDetails() {
       countryService.findById(String(countryId)).then((response) => {
         const countryData = countryService.getCountryById(response.data);
         setCountry(countryData);
-        console.log(countryData);
         
       });
     }

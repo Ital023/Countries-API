@@ -46,9 +46,11 @@ export default function CountryCardDetails({country} : Props) {
                 <div className="flex flex-col gap-4 lg:flex-row sm:items-center">
                     <h3 className="text-lightMode-tertiary font-bold text-base dark:text-darkMode-secondary">Border Countries: </h3>
                     <div className="grid grid-cols-2 xs:grid-cols-3 gap-3">
-                        <BorderCountryCard name="France"/>
-                        <BorderCountryCard name="Germany"/>
-                        <BorderCountryCard name="Netherlands"/>
+                        {
+                            country.borders.map(border => (
+                                <BorderCountryCard id={border} key={border}/>
+                            ))
+                        }
                     </div>
                 </div>
 

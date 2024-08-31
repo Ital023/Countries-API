@@ -11,5 +11,6 @@ export type CountryCardDetailDTO = {
     tld: string[];
     currencies: string;
     languages: string;
-    flags: Flags;    
+    flags: Flags;
+    borders: string[];    
 }

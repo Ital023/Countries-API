@@ -3,6 +3,7 @@ import { CountryCardDTO } from "../models/CountryCardDTO";
 import { BASE_URL } from "../utils/system";
 import { CountryCardDetailDTO } from "../models/CountryCardDetailDTO";
 import { Currency } from "../models/Currencies";
+import { BorderCountryNameDTO } from "../models/BorderCountryNameDTO";
 
 export function findAllRequest() {
   return axios.get(`${BASE_URL}/all`);
@@ -61,7 +62,8 @@ function sortCountriesAlphabetically(response: any[]) {
        png: "",
        svg: "",
        alt: ""
-     }
+     },
+     borders: []
    }
 
    if (country) {
@@ -99,7 +101,8 @@ function sortCountriesAlphabetically(response: any[]) {
       tld: country.tld,
       currencies: concatenatedCurrencies,
       languages: concatenatedLanguages,
-      subregion: country.subregion
+      subregion: country.subregion,
+      borders: country.borders
      };
 
      return countryDTO;
@@ -109,3 +112,18 @@ function sortCountriesAlphabetically(response: any[]) {
  }
 
 
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ export function getBordersById(response: any): BorderCountryNameDTO {
+  const responseOfficial = response[0];  
+
+  let borderCountryNameDTO: BorderCountryNameDTO = {
+    name: ""
+  }
+
+  if(responseOfficial) {
+    borderCountryNameDTO = {
+      name: responseOfficial.name.common 
+    }
+  }
+  return borderCountryNameDTO;
+}
