@@ -1,6 +1,6 @@
 type Props = {
     contentName: string;
-    content: string
+    content: string | string[];
 }
 
 export default function CountryCardDetailsInfos({contentName, content}: Props) {

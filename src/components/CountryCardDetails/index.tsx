@@ -25,15 +25,20 @@ export default function CountryCardDetails({country} : Props) {
                 
                 <div className="flex flex-col gap-3">
                     <CountryCardDetailsInfos contentName={"Native Name"} content={country.name} />
-                    <CountryCardDetailsInfos contentName={"Native Name"} content={country.name} />
+                    <CountryCardDetailsInfos contentName={"Population"} content={String(country.population)} />
+                    <CountryCardDetailsInfos contentName={"Region"} content={country.region} />
+                    <CountryCardDetailsInfos contentName={"Sub Region"} content={country.subregion} />
+                    <CountryCardDetailsInfos contentName={"Capital"} content={country.capital} />
 
                 </div>
 
                 <div className="flex flex-col gap-3">
 
-                    <p className="text-lightMode-tertiary font-bold text-sm dark:text-darkMode-secondary md:text-base">Top Level Domain: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">.be</span></p>
-                    <p className="text-lightMode-tertiary font-bold text-sm dark:text-darkMode-secondary md:text-base">Currencies: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">Euro</span></p>
-                    <p className="text-lightMode-tertiary font-bold text-sm dark:text-darkMode-secondary md:text-base">Languages: <span className="text-lightMode-tertiary font-medium text-sm dark:text-darkMode-secondary md:text-base">Dutch, French, German</span></p>
+                    <CountryCardDetailsInfos contentName={"Top Level Domain"} content={country.tld} />
+
+                    <CountryCardDetailsInfos contentName={"Currencies"} content={country.currencies} />
+
+                    <CountryCardDetailsInfos contentName={"Languages"} content={country.languages} />
 
                 </div>
 

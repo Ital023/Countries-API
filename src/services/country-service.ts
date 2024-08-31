@@ -94,7 +94,7 @@ function sortCountriesAlphabetically(response: any[]) {
       flags: country.flags,
       nativeName: nativeName,
       population: formatedNumber,
-      region: country.subregion,
+      region: country.region,
       capital: country.capital,
       tld: country.tld,
       currencies: concatenatedCurrencies,
