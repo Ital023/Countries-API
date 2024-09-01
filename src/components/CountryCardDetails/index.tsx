@@ -12,7 +12,7 @@ export default function CountryCardDetails({country} : Props) {
     <div className="flex flex-col gap-11 lg:flex-row lg:gap-36">
 
         <div className="xs:min-w-80 md:w-80 lg:w-136">
-            <img src={country.flags.svg} alt={country.flags.alt} className="w-full max-h-56 lg:min-h-106 rounded shadow object-cover"/>
+            <img src={country.flags.svg} alt={country.flags.alt} className="w-full max-h-56 lg:min-h-106 rounded shadow"/>
         </div>
         
         <div className="flex flex-col gap-4 lg:gap-7">

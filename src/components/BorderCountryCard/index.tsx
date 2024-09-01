@@ -11,10 +11,7 @@ type Props = {
 }
 
 export default function BorderCountryCard({ id }: Props) {    
-    const { countryId } = useParams();
-
-    console.log(id);
-    
+    const { countryId } = useParams();    
 
     const [countryName, setCountryName] = useState<string>();
 

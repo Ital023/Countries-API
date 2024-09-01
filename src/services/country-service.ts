@@ -13,6 +13,10 @@ export function findById(id: string) {
   return axios.get(`${BASE_URL}/alpha/${id}`)
 }
 
+export function findByName(countryName: string) {
+  return axios.get(`${BASE_URL}/name/${countryName}`)
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getCountryCardInfos(response: any[]): CountryCardDTO[] {
   const countries: CountryCardDTO[] = [];
