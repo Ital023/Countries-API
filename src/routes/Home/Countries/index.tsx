@@ -4,6 +4,7 @@ import FilterRegion from "../../../components/FilterRegion";
 import SearchBar from "../../../components/SearchBar";
 import * as countryService from "../../../services/country-service"
 import { CountryCardDTO } from "../../../models/CountryCardDTO";
+import { toast } from "react-toastify";
 
 type QueryParams = {
   countryName: string;
@@ -27,22 +28,42 @@ export default function Countries() {
     setQueryParams({...queryParams, countryName: searchText})
   };
 
-
   useEffect(()=>{
     
      countryService.findAllRequest().then((response)=>{
        const result = response.data;
        setCountriesCardDto(countryService.getCountryCardInfos(result));    
-    });
+    }).catch(() => {
+      toast.error('Ocorreu um erro ao carregar os dados!', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })     
+    })
 
-    if(queryParams.countryName !== "" || undefined || null) {
-      countryService.findByName(queryParams.countryName).then((response)=> {
-        const result = response.data;
-        setCountriesCardDto(countryService.getCountryCardInfos(result));
-      }).catch(() => {
-        console.log("NAO ENCONTRADO");
-        
-      })
+    if (queryParams.countryName !== "" && queryParams.countryName !== undefined && queryParams.countryName !== null) {
+      countryService.findByName(queryParams.countryName)
+        .then((response) => {
+          const result = response.data;
+          setCountriesCardDto(countryService.getCountryCardInfos(result));
+        })
+        .catch(() => {
+          toast.error('Nome do pais inválido!', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          })
+        })
     }
 
     if(queryParams.selectedValue !== "" || undefined || null) {
