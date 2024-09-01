@@ -7,6 +7,7 @@ import { CountryCardDTO } from "../../../models/CountryCardDTO";
 
 type QueryParams = {
   countryName: string;
+  selectedValue: string;
 }
 
 export default function Countries() {
@@ -14,8 +15,18 @@ export default function Countries() {
   const [countriesCardDto, setCountriesCardDto] = useState<CountryCardDTO[]>([]);
 
   const [queryParams, setQueryParams] = useState<QueryParams>({
-    countryName: ""
+    countryName: "",
+    selectedValue: ""
   });
+
+  function handleSelectChange(value: string) {
+    setQueryParams({...queryParams, selectedValue: value});
+  };
+
+  function handleSearch(searchText: string) {
+    setQueryParams({...queryParams, countryName: searchText})
+  };
+
 
   useEffect(()=>{
     
@@ -28,16 +39,22 @@ export default function Countries() {
       countryService.findByName(queryParams.countryName).then((response)=> {
         const result = response.data;
         setCountriesCardDto(countryService.getCountryCardInfos(result));
+      }).catch(() => {
+        console.log("NAO ENCONTRADO");
+        
       })
     }
-    
+
+    if(queryParams.selectedValue !== "" || undefined || null) {
+      countryService.findByRegion(queryParams.selectedValue).then((response) => {
+        const result = response.data;
+        setCountriesCardDto(countryService.getCountryCardInfos(result));
+      })
+    }
+
   },[queryParams])
 
-  function handleSearch(searchText: string) {
-    setQueryParams({
-      countryName: searchText
-    });
-  }
+  
   
   return (
     <main className="bg-lightMode-primary min-h-[calc(100vh-5rem)] px-4 pt-6 pb-16 dark:bg-darkMode-primary">
@@ -46,7 +63,7 @@ export default function Countries() {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-10 md:flex-row md:justify-between">
             <SearchBar onSearch={handleSearch} />
-            <FilterRegion />
+            <FilterRegion onFilter={handleSelectChange}/>
           </div>
 
           <div className="flex flex-col gap-10 md:grid xl:grid-cols-4 md:grid-cols-2">
